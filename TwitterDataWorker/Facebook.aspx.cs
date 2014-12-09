@@ -15,8 +15,8 @@ namespace TwitterDataWorker
 {
     public partial class Facebook : System.Web.UI.Page
     {
-        private const string app_id = "1457269367858050";
-        private const string app_secret = "5d7f63825c49a88832d3f11da7cbd1b5";
+        private const string app_id = "INSERT APP ID";
+        private const string app_secret = "INSERT APP SECRET";
         private const string scope = "email, user_about_me ";
         private string _accessToken;
 
