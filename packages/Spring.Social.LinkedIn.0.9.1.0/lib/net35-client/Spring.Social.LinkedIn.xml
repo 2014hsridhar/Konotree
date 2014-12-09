@@ -1,0 +1,1306 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spring.Social.LinkedIn</name>
+    </assembly>
+    <members>
+        <member name="T:Spring.Social.LinkedIn.Api.Company">
+            <summary>
+            Represents a LinkedIn company.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.ID">
+            <summary>
+            Gets or sets the unique identifier for the company.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.Name">
+            <summary>
+            Gets or sets the name of the company. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.Industry">
+            <summary>
+            Gets or sets the industry in which the company operates.
+            <para/>
+            Industry codes: http://developer.linkedin.com/node/1011
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.Size">
+            <summary>
+            Gets or sets the number of employees at the company. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.Type">
+            <summary>
+            Gets or sets a value indicating whether the company is public or private.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Company.Ticker">
+            <summary>
+            Gets or sets the stock market name for the company, if the company type is public.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInUrl">
+            <summary>
+            Represents a LinkedIn URL.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInUrl.Name">
+            <summary>
+            Gets or sets the label given to the URL by the member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInUrl.Url">
+            <summary>
+            Gets or sets the resource URL.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.PhoneNumber">
+            <summary>
+            Represents a LinkedIn phone number.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.PhoneNumber.Type">
+            <summary>
+            Gets or sets the type of phone number. 
+            <para/>
+            Possible values are: home, work, and mobile.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.PhoneNumber.Number">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Education">
+            <summary>
+            Represents an education details for a Profile on LinkedIn.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.ID">
+            <summary>
+            Gets or sets the unique identifier for the education entry.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.SchoolName">
+            <summary>
+            Gets or sets the name of the school, as indicated by the member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.StudyField">
+            <summary>
+            Gets or sets the field of study at the school, as indicated by the member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.StartDate">
+            <summary>
+            Gets or sets the year indicating when the education began.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.EndDate">
+            <summary>
+            Gets or sets the year indicating when the education ended, 
+            or <see langword="null"/> when the education is current.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.Degree">
+            <summary>
+            Gets or sets the degree, if any, received at this institution.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.Activities">
+            <summary>
+            Gets or sets a value describing activities the member was involved in 
+            while a student at this institution.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Education.Notes">
+            <summary>
+            Gets or sets other details on the member's studies.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.ICommunicationOperations">
+            <summary>
+            Interface defining the operations for sending messages and sending connect invitations to other users on LinkedIn.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.SendMessage(System.String,System.String,System.String)">
+            <summary>
+            Sends a textual message to a recipient specified by its ID.
+            </summary>
+            <param name="subject">The subject of the message.</param>
+            <param name="body">The body or text of the message (does not support html).</param>
+            <param name="recipientId">The recipient <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> ID.</param>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.SendMessage(System.String,System.String,System.String[])">
+            <summary>
+            Sends a textual message to a list of recipients specified by their ID.
+            </summary>
+            <param name="subject">The subject of the message.</param>
+            <param name="body">The body or text of the message (does not support html).</param>
+            <param name="recipientIds">The list of recipient <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> IDs. At least one.</param>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.ConnectTo(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a connect invitation message to recipient ID.
+            </summary>
+            <param name="subject">The subject of the invitation message.</param>
+            <param name="body">The body or text of the invitation message (does not support html).</param>
+            <param name="recipientId">The recipient ID.</param>
+            <param name="recipientAuthToken">The recipient additional authorization token returned when performing a search.</param>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.ConnectTo(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a connect invitation message to an email (for users not on LinkedIn).
+            </summary>
+            <param name="subject">The subject of the invitation message.</param>
+            <param name="body">The body or text of the invitation message (does not support html).</param>
+            <param name="email">The email address of the recipient.</param>
+            <param name="firstName">The first name of the recipient.</param>
+            <param name="lastName">The last name of the recipient.</param>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.SendMessageAsync(System.String,System.String,System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{System.Object}})">
+            <summary>
+            Asynchronously sends a textual message to a recipient specified by its ID.
+            </summary>
+            <param name="subject">The subject of the message.</param>
+            <param name="body">The body or text of the message (does not support html).</param>
+            <param name="recipientId">The recipient <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> ID.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.SendMessageAsync(System.String,System.String,System.String[],System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{System.Object}})">
+            <summary>
+            Asynchronously sends a textual message to a list of recipients specified by their ID.
+            </summary>
+            <param name="subject">The subject of the message.</param>
+            <param name="body">The body or text of the message (does not support html).</param>
+            <param name="recipientIds">The list of recipient <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> IDs. At least one.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>&gt;
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.ConnectToAsync(System.String,System.String,System.String,System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{System.Object}})">
+            <summary>
+            Asynchronously sends a connect invitation message to recipient ID.
+            </summary>
+            <param name="subject">The subject of the invitation message.</param>
+            <param name="body">The body or text of the invitation message (does not support html).</param>
+            <param name="recipientId">The recipient ID.</param>
+            <param name="recipientAuthToken">The recipient additional authorization token returned when performing a search.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.ICommunicationOperations.ConnectToAsync(System.String,System.String,System.String,System.String,System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{System.Object}})">
+            <summary>
+            Asynchronously sends a connect invitation message to an email (for users not on LinkedIn).
+            </summary>
+            <param name="subject">The subject of the invitation message.</param>
+            <param name="body">The body or text of the invitation message (does not support html).</param>
+            <param name="email">The email address of the recipient.</param>
+            <param name="firstName">The first name of the recipient.</param>
+            <param name="lastName">The last name of the recipient.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.IConnectionOperations">
+            <summary>
+            Interface defining the operations for retrieving authenticated user's connections.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetConnections">
+            <summary>
+            Retrieves up to 500 of the 1st-degree connections from the authenticated user's network.
+            </summary>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfiles"/> object representing the user's connections.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetConnections(System.Int32,System.Int32)">
+            <summary>
+            Retrieves the 1st-degree connections from the authenticated user's network.
+            </summary>
+            <param name="start">The starting location in the result set. Used with count for pagination.</param>
+            <param name="count">The number of connections to return. The maximum value is 500. Used with start for pagination.</param>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfiles"/> object representing the user's connections.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetNetworkStatistics">
+            <summary>
+            Retrieves network statistics for the authenticated user.
+            </summary>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.NetworkStatistics"/> that contains count of 1st-degree and second degree connections.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetConnectionsAsync(System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfiles}})">
+            <summary>
+            Asynchronously retrieves up to 500 of the 1st-degree connections from the authenticated user's network.
+            </summary>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfiles"/> object representing the user's connections.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetConnectionsAsync(System.Int32,System.Int32,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfiles}})">
+            <summary>
+            Asynchronously retrieves the 1st-degree connections from the authenticated user's network.
+            </summary>
+            <param name="start">The starting location in the result set. Used with count for pagination.</param>
+            <param name="count">The number of connections to return. The maximum value is 500. Used with start for pagination.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfiles"/> object representing the user's connections.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IConnectionOperations.GetNetworkStatisticsAsync(System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.NetworkStatistics}})">
+            <summary>
+            Asynchronously retrieves network statistics for the authenticated user.
+            </summary>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.NetworkStatistics"/> that contains count of 1st-degree and second degree connections.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.ILinkedIn">
+            <summary>
+            Interface specifying a basic set of operations for interacting with LinkedIn.
+            </summary>
+            <author>Craig Walls</author>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ILinkedIn.CommunicationOperations">
+            <summary>
+            Gets the portion of the LinkedIn API sending messages and connection requests.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ILinkedIn.ConnectionOperations">
+            <summary>
+            Gets the portion of the LinkedIn API retrieving connections.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ILinkedIn.ProfileOperations">
+            <summary>
+            Gets the portion of the LinkedIn API retrieving and performing operations on profiles.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ILinkedIn.RestOperations">
+            <summary>
+            Gets the underlying <see cref="T:Spring.Rest.Client.IRestOperations"/> object allowing for consumption of LinkedIn endpoints 
+            that may not be otherwise covered by the API binding. 
+            </summary>
+            <remarks>
+            The <see cref="T:Spring.Rest.Client.IRestOperations"/> object returned is configured to include an OAuth "Authorization" header on all requests.
+            </remarks>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.ImAccount">
+            <summary>
+            Represents an IM (Instant Messenger) account details for a profile on LinkedIn.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ImAccount.Type">
+            <summary>
+            Gets or sets the type of IM account. 
+            <para/>
+            Possible values are: aim, gtalk, icq, msn, skype, and yahoo.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.ImAccount.Name">
+            <summary>
+            Gets or sets the name of the IM account.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.AbstractLinkedInOperations">
+            <summary>
+            Base class for LinkedIn operations.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.CommunicationTemplate">
+            <summary>
+            Implementation of <see cref="T:Spring.Social.LinkedIn.Api.ICommunicationOperations"/>, providing a binding to LinkedIn's communications-oriented REST resources.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.ConnectionTemplate">
+            <summary>
+            Implementation of <see cref="T:Spring.Social.LinkedIn.Api.IConnectionOperations"/>, providing a binding to LinkedIn's connections-oriented REST resources.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia  (.NET)</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Invitation">
+            <summary>
+            Represents a LinkedIn invitation.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.InvitationRecipient">
+            <summary>
+            Represents LinkedIn invitation recipient.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.InvitationSerializer">
+            <summary>
+            JSON serializer for LinkedIn invitation.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.LinkedInFullProfileDeserializer">
+            <summary>
+            JSON deserializer for LinkedIn full user's profile.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.LinkedInProfileDeserializer">
+            <summary>
+            JSON deserializer for LinkedIn user's profile.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.LinkedInProfileListDeserializer`1">
+            <summary>
+            JSON deserializer for list of LinkedIn user's profiles. 
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.LinkedInProfilesDeserializer">
+            <summary>
+            JSON deserializer for LinkedIn user's profile.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.PaginatedResultDeserializer">
+            <summary>
+            JSON deserializer for LinkedIn paginated result sets.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.MessageSerializer">
+            <summary>
+            JSON serializer for LinkedIn message.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Json.NetworkStatisticsDeserializer">
+            <summary>
+            JSON deserializer for network statistics.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.LinkedInRequestFactoryInterceptor">
+            <summary>
+            Intercepts HTTP requests creation to leave URI dots and slashes escaped.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate">
+            <summary>
+            This is the central class for interacting with LinkedIn.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate"/>.
+            </summary>
+            <param name="consumerKey">The application's API key.</param>
+            <param name="consumerSecret">The application's API secret.</param>
+            <param name="accessToken">An access token acquired through OAuth authentication with LinkedIn.</param>
+            <param name="accessTokenSecret">An access token secret acquired through OAuth authentication with LinkedIn.</param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.ConfigureRestTemplate(Spring.Rest.Client.RestTemplate)">
+            <summary>
+            Enables customization of the <see cref="T:Spring.Rest.Client.RestTemplate"/> used to consume provider API resources.
+            </summary>
+            <remarks>
+            An example use case might be to configure a custom error handler. 
+            Note that this method is called after the RestTemplate has been configured with the message converters returned from GetMessageConverters().
+            </remarks>
+            <param name="restTemplate">The RestTemplate to configure.</param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.GetMessageConverters">
+            <summary>
+            Returns a list of <see cref="T:Spring.Http.Converters.IHttpMessageConverter"/>s to be used by the internal <see cref="T:Spring.Rest.Client.RestTemplate"/>.
+            </summary>
+            <remarks>
+            This implementation adds <see cref="T:Spring.Http.Converters.Json.SpringJsonHttpMessageConverter"/> and <see cref="T:Spring.Http.Converters.ByteArrayHttpMessageConverter"/> to the default list.
+            </remarks>
+            <returns>
+            The list of <see cref="T:Spring.Http.Converters.IHttpMessageConverter"/>s to be used by the internal <see cref="T:Spring.Rest.Client.RestTemplate"/>.
+            </returns>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.GetJsonMessageConverter">
+            <summary>
+            Returns a <see cref="T:Spring.Http.Converters.Json.SpringJsonHttpMessageConverter"/> to be used by the internal <see cref="T:Spring.Rest.Client.RestTemplate"/>.
+            <para/>
+            Override to customize the message converter (for example, to set a custom object mapper or supported media types).
+            </summary>
+            <returns>The configured <see cref="T:Spring.Http.Converters.Json.SpringJsonHttpMessageConverter"/>.</returns>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.CommunicationOperations">
+            <summary>
+            Gets the portion of the LinkedIn API sending messages and connection requests.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.ConnectionOperations">
+            <summary>
+            Gets the portion of the LinkedIn API retrieving connections.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.ProfileOperations">
+            <summary>
+            Gets the portion of the LinkedIn API retrieving and performing operations on profiles.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Impl.LinkedInTemplate.RestOperations">
+            <summary>
+            Gets the underlying <see cref="T:Spring.Rest.Client.IRestOperations"/> object allowing for consumption of LinkedIn endpoints 
+            that may not be otherwise covered by the API binding. 
+            </summary>
+            <remarks>
+            The <see cref="T:Spring.Rest.Client.IRestOperations"/> object returned is configured to include an OAuth "Authorization" header on all requests.
+            </remarks>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.Message">
+            <summary>
+            Represents a LinkedIn message.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Impl.ProfileTemplate">
+            <summary>
+            Implementation of <see cref="T:Spring.Social.LinkedIn.Api.IProfileOperations"/>, providing a binding to LinkedIn's profiles-oriented REST resources.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.IProfileOperations">
+            <summary>
+            Interface defining the operations for retrieving and performing operations on profiles.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfile">
+            <summary>
+            Retrieves the authenticated user's LinkedIn profile details.
+            </summary>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfileById(System.String)">
+            <summary>
+            Retrieves a specific user's LinkedIn profile details by its ID.
+            </summary>
+            <param name="id">The user ID for the user whose details are to be retrieved.</param>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfileByPublicUrl(System.String)">
+            <summary>
+            Retrieves a specific user's LinkedIn profile details by its public url.
+            </summary>
+            <param name="url">The user public url for the user whose details are to be retrieved.</param>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfile">
+            <summary>
+            Retrieves the authenticated user's LinkedIn full profile details.
+            </summary>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the full user's profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfileById(System.String)">
+            <summary>
+            Retrieves a specific user's LinkedIn full profile details by its ID.
+            </summary>
+            <param name="id">The user ID for the user whose details are to be retrieved.</param>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the user's full profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfileByPublicUrl(System.String)">
+            <summary>
+            Retrieves a specific user's LinkedIn full profile details by its public url.
+            </summary>
+            <param name="url">The user public url for the user whose details are to be retrieved.</param>
+            <returns>
+            A <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the user's full profile.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.Search(Spring.Social.LinkedIn.Api.SearchParameters)">
+            <summary>
+            Searches for LinkedIn profiles based on provided parameters.
+            </summary>
+            <param name="parameters">The profile search parameters.</param>
+            <returns>
+            An object containing the search results metadata and a list of matching <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/>s.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfileAsync(System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfile}})">
+            <summary>
+            Asynchronously retrieves the authenticated user's LinkedIn profile details.
+            </summary>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfileByIdAsync(System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfile}})">
+            <summary>
+            Asynchronously retrieves a specific user's LinkedIn profile details by its ID.
+            </summary>
+            <param name="id">The user ID for the user whose details are to be retrieved.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfileAsync(System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInFullProfile}})">
+            <summary>
+            Asynchronously retrieves the authenticated user's LinkedIn full profile details.
+            </summary>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the user's full profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfileByIdAsync(System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInFullProfile}})">
+            <summary>
+            Asynchronously retrieves a specific user's LinkedIn full profile details by its ID.
+            </summary>
+            <param name="id">The user ID for the user whose details are to be retrieved.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the user's full profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserProfileByPublicUrlAsync(System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfile}})">
+            <summary>
+            Asynchronously retrieves a specific user's LinkedIn profile details by its public url.
+            </summary>
+            <param name="url">The user public url for the user whose details are to be retrieved.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/> object representing the user's profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.GetUserFullProfileByPublicUrlAsync(System.String,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInFullProfile}})">
+            <summary>
+            Asynchronously retrieves a specific user's LinkedIn full profile details by its public url.
+            </summary>
+            <param name="url">The user public url for the user whose details are to be retrieved.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides a <see cref="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile"/> object representing the user's full profile.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.IProfileOperations.SearchAsync(Spring.Social.LinkedIn.Api.SearchParameters,System.Action{Spring.Rest.Client.RestOperationCompletedEventArgs{Spring.Social.LinkedIn.Api.LinkedInProfiles}})">
+            <summary>
+            Asynchronously searches for LinkedIn profiles based on provided parameters.
+            </summary>
+            <param name="parameters">The profile search parameters.</param>
+            <param name="operationCompleted">
+            The <code>Action&lt;&gt;</code> to perform when the asynchronous request completes. 
+            Provides an object containing the search results metadata and a list of matching <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/>s.
+            </param>
+            <returns>
+            A <see cref="T:Spring.Rest.Client.RestOperationCanceler"/> instance that allows to cancel the asynchronous operation.
+            </returns>
+            <exception cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException">If there is an error while communicating with LinkedIn.</exception>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInApiError">
+            <summary>
+            The <see cref="T:Spring.Social.LinkedIn.Api.LinkedInApiError"/> enumeration is used by the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException"/> class 
+            to indicate what kind of error caused the exception.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.LinkedInApiError.Unknown">
+            <summary>
+            Unknown.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInApiException">
+            <summary>
+            The exception that is thrown when a error occurs while consuming LinkedIn REST API.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.LinkedInApiException.#ctor(System.String,Spring.Social.LinkedIn.Api.LinkedInApiError)">
+            <summary>
+            Creates a new instance of the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException"/> class.
+            </summary>
+            <param name="message">A message about the exception.</param>
+            <param name="error">The LinkedIn error.</param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.LinkedInApiException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException"/> class.
+            </summary>
+            <param name="message">A message about the exception.</param>
+            <param name="innerException">The inner exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.LinkedInApiException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInApiException"/> class.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/>
+            that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/>
+            that contains contextual information about the source or destination.
+            </param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Api.LinkedInApiException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates the <see cref="T:System.Runtime.Serialization.SerializationInfo"/> with 
+            information about the exception.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds 
+            the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual 
+            information about the source or destination.
+            </param>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInApiException.Error">
+            <summary>
+            Gets the LinkedIn error.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInDate">
+            <summary>
+            Represents a LinkedIn Date which just contains year, month and day.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInDate.Year">
+            <summary>
+            Gets or sets the year component of the date, if provided. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInDate.Month">
+            <summary>
+            Gets or sets the month component of the date, if provided. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInDate.Day">
+            <summary>
+            Gets or sets the day component of the date, if provided. 
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInFullProfile">
+            <summary>
+            Represents a LinkedIn full user's profile information.
+            </summary>
+            <author>Bruno Baia</author>
+            <author>Robert Drysdale</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInProfile">
+            <summary>
+            Represents a LinkedIn user's profile information.
+            </summary>
+            <author>Craig Walls</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.ID">
+            <summary>
+            Gets or sets the user's LinkedIn ID.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.FirstName">
+            <summary>
+            Gets or sets the user's first name.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.LastName">
+            <summary>
+            Gets or sets the user's last name.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.Headline">
+            <summary>
+            Gets or sets the user's headline.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.Industry">
+            <summary>
+            Gets or sets the user's industry.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.PictureUrl">
+            <summary>
+            Gets or sets a URL to the user's profile picture.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.Summary">
+            <summary>
+            Gets or sets the user's summary.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.PublicProfileUrl">
+            <summary>
+            Gets or sets a URL to the user's public profile. 
+            <para/>
+            The content shown at this profile is intended for public display and is determined by the user's privacy settings.
+            <para/>
+            May be null if the user's profile isn't public.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.StandardProfileUrl">
+            <summary>
+            Gets or sets a URL to the user's authenticated profile.
+            <para/>
+            Requires a login to be viewed, unlike public profile url and 
+            the content shown at this profile will depend upon what the requesting user is allowed to see.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfile.AuthToken">
+            <summary>
+            Gets or sets an authentication token required by some API calls.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Positions">
+            <summary>
+            Gets or sets the collection of positions a member has had.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.ThreeCurrentPositions">
+            <summary>
+            Gets or sets the collection of positions a member currently holds, limited to three.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.ThreePastPositions">
+            <summary>
+            Gets or sets the collection of positions a member formerly held, limited to the three most recent
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Recommendations">
+            <summary>
+            Gets or sets the collection of recommendations a member has received. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.ImAccounts">
+            <summary>
+            Gets or sets the collection of instant messenger accounts.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.TwitterAccounts">
+            <summary>
+            Gets or sets the collection of Twitter accounts.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.UrlResources">
+            <summary>
+            Gets or sets the collection of URLs the member has chosen to share on their LinkedIn profile.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.PhoneNumbers">
+            <summary>
+            Gets or sets the collection of phone numbers. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Skills">
+            <summary>
+            Gets or sets the collection of skills held by this member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Educations">
+            <summary>
+            Gets or sets the collection of education institutions a member has attended.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.ProposalComments">
+            <summary>
+            Gets or sets the short-form text area describing how the member approaches proposals.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Specialties">
+            <summary>
+            Gets or sets the short-form text area where the member enumerates their specialties.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.ConnectionsCount">
+            <summary>
+            Gets or sets the number of connections the member has.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.IsConnectionsCountCapped">
+            <summary>
+            Gets or sets a value indicating whether the number of connections has been capped at 500.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.RecommendersCount">
+            <summary>
+            Gets or sets the number of recommendations the member has.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.MainAddress">
+            <summary>
+            Gets or sets the member's main address. Could be home, work, etc.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Associations">
+            <summary>
+            Gets or sets the short-form text area enumerating the associations a member has.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Location">
+            <summary>
+            Gets or sets the generic name of the location of the LinkedIn member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.CountryCode">
+            <summary>
+            Gets or sets the country code (ISO 3166-1 alpha-2 standard) for the LinkedIn member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Interests">
+            <summary>
+            Gets or sets the short-form text area describing the member's interests.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Honors">
+            <summary>
+            Gets or sets a short-form text area describing what Honors the member may have.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.Distance">
+            <summary>
+            Gets or sets the degree distance of the fetched profile from the member who fetched the profile.
+            </summary>
+            <remarks>
+            Possible values are:
+            <list type="bullet">
+            <item>description>0: the member</item>
+            <item>1, 2, and 3: # of degrees apart</item>
+            <item>-1: out of network</item>
+            <item>100: share a group, but not within 3 degrees (will get 1-3 instead)</item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInFullProfile.BirthDate">
+            <summary>
+            Gets or sets the member's birth date.
+            <para/>
+            May return only month and day, but not year, or all three, depending on information provided.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.LinkedInProfiles">
+            <summary>
+            Represents the results of a LinkedIn profile search.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.PaginatedResult">
+            <summary>
+            Abstract class for paginated result sets.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.PaginatedResult.Start">
+            <summary>
+            Gets or sets the start location within the result set for paginated returns.
+            <para/>
+            This is the zero-based ordinal number of the search return, not the number of the page.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.PaginatedResult.Count">
+            <summary>
+            Gets or sets the number of results to return.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.PaginatedResult.Total">
+            <summary>
+            Gets or sets the total number of results available.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.LinkedInProfiles.Profiles">
+            <summary>
+            Gets or sets the list of matching <see cref="T:Spring.Social.LinkedIn.Api.LinkedInProfile"/>s.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.NetworkStatistics">
+            <summary>
+            Represents network statistics of a user.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.NetworkStatistics.FirstDegreeCount">
+            <summary>
+            Gets or sets the count of first degree connections.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.NetworkStatistics.SecondDegreeCount">
+            <summary>
+            Gets or sets the count of second degree connections.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Position">
+            <summary>
+            Represents a LinkedIn user's position.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.ID">
+            <summary>
+            Gets or sets the unique identifier for the position.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.Company">
+            <summary>
+            Gets or sets the company the member works for.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.Title">
+            <summary>
+            Gets or sets the job title held at the position, as indicated by the member.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.Summary">
+            <summary>
+            Gets or sets the summary of the member's position.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.IsCurrent">
+            <summary>
+            Gets or sets a value indicating whether the member currently holds that position.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.StartDate">
+            <summary>
+            Gets or sets the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInDate"/> with month and year fields 
+            indicating when the position began.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Position.EndDate">
+            <summary>
+            Gets or sets the <see cref="T:Spring.Social.LinkedIn.Api.LinkedInDate"/> with month and year fields 
+            indicating when the position ended.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.ProfileSort">
+            <summary>
+            Defines the profile search result order.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.ProfileSort.Connections">
+            <summary>
+            Number of connections per person, from largest to smallest. Default value.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.ProfileSort.Recommenders">
+            <summary>
+            Number of recommendations per person, from largest to smallest.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.ProfileSort.Distance">
+            <summary>
+            Degree of separation within the member's network, from first degree, then second degree, 
+            and then all others mixed together, including third degree and out-of-network.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.ProfileSort.Relevance">
+            <summary>
+            Relevance of results based on the query, from most to least relevant.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.Recommendation">
+            <summary>
+            Represents a LinkedIn recommendation.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Recommendation.ID">
+            <summary>
+            Gets or sets the unique identifier for the recommendation.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Recommendation.Text">
+            <summary>
+            Gets or sets the recommendation text.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Recommendation.Type">
+            <summary>
+            Gets or sets the type of recommendation that was selected by the person making the recommendation.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.Recommendation.Recommender">
+            <summary>
+            Gets or sets the person who made the recommendation. 
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.RecommendationType">
+            <summary>
+            Represents LinkedIn types of recommendation.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.RecommendationType.BusinessPartner">
+            <summary>
+            Business partner.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.RecommendationType.Colleague">
+            <summary>
+            Colleague.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.RecommendationType.Education">
+            <summary>
+            Education.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.RecommendationType.ServiceProvider">
+            <summary>
+            Service provider.
+            </summary>
+        </member>
+        <member name="F:Spring.Social.LinkedIn.Api.RecommendationType.Unknown">
+            <summary>
+            Not defined.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.SearchParameters">
+            <summary>
+            Represents profile search parameters.
+            </summary>
+            <author>Robert Drysdale</author>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Keywords">
+            <summary>
+            Gets or sets the space delimited keywords.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.FirstName">
+            <summary>
+            Gets or sets the first name to match exactly.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.LastName">
+            <summary>
+            Gets or sets the last name to match exactly.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.CompanyName">
+            <summary>
+            Gets or sets the company name to match.
+            <para/>
+            Can be combined with the IsCurrentCompany property to specify 
+            whether the person is or is not still working at the company.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.IsCurrentCompany">
+            <summary>
+            Gets or sets a value indicating whether to match members 
+            who currently work at the company specified in the CompanyName property.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Title">
+            <summary>
+            Gets or sets the profile title to match.
+            <para/>
+            Can be combined with the IsCurrentTitle property to specify 
+            whether the member currently or once had that title.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.IsCurrentTitle">
+            <summary>
+            Gets or sets a value indicating whether to match members 
+            who currently or once had the title specified in the Title property.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.SchoolName">
+            <summary>
+            Gets or sets the school name to match.
+            <para/>
+            Can be combined with the IsCurrentSchool property to specify 
+            whether the member is or is not still at the school.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.IsCurrentSchool">
+            <summary>
+            Gets or sets a value indicating whether to match members 
+            who currently attend the school specified in the SchoolName property.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.CountryCode">
+            <summary>
+            Gets or sets the location in a specific country to match. 
+            <para/>
+            Values are defined in by ISO 3166 standard.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.PostalCode">
+            <summary>
+            Gets or sets the postal code to match. 
+            <para/>
+            Can be combined with the CountryCode property (Not supported for all countries).
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Distance">
+            <summary>
+            Gets or sets the distance (in miles) from a central point to match. 
+            <para/>
+            This is best used in combination with both CountryCode and PostalCode properties.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Start">
+            <summary>
+            Gets or sets the start location within the result set for paginated returns.
+            <para/>
+            This is the zero-based ordinal number of the search return, not the number of the page.
+            <para/>
+            The default value is 0.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Count">
+            <summary>
+            Gets or sets the number of profiles to return. Values can range between 0 and 25.
+            <para/>
+            The default value is 10.
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.SearchParameters.Sort">
+            <summary>
+            Gets or sets the profile search result order.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Api.TwitterAccount">
+            <summary>
+            Represents an user's Twitter account.
+            </summary>
+            <author>Bruno Baia</author>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.TwitterAccount.ID">
+            <summary>
+            Gets or sets the Twitter account ID. 
+            </summary>
+        </member>
+        <member name="P:Spring.Social.LinkedIn.Api.TwitterAccount.Name">
+            <summary>
+            Gets or sets the Twitter account name.
+            </summary>
+        </member>
+        <member name="T:Spring.Social.LinkedIn.Connect.LinkedInServiceProvider">
+            <summary>
+            LinkedIn <see cref="T:System.IServiceProvider"/> implementation.
+            </summary>
+            <author>Keith Donald</author>
+            <author>Bruno Baia (.NET)</author>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Connect.LinkedInServiceProvider.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Spring.Social.LinkedIn.Connect.LinkedInServiceProvider"/>.
+            </summary>
+            <param name="consumerKey">The application's API key.</param>
+            <param name="consumerSecret">The application's API secret.</param>
+        </member>
+        <member name="M:Spring.Social.LinkedIn.Connect.LinkedInServiceProvider.GetApi(System.String,System.String)">
+            <summary>
+            Returns an API interface allowing the client application to access protected resources on behalf of a user.
+            </summary>
+            <param name="accessToken">The API access token.</param>
+            <param name="secret">The access token secret.</param>
+            <returns>A binding to the service provider's API.</returns>
+        </member>
+    </members>
+</doc>
