@@ -7,3 +7,9 @@ Installation
 ========
 
 Describe installation details here
+
+Usage
+========
+
+TODO: Write history
+========
