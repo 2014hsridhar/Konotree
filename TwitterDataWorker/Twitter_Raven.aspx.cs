@@ -25,8 +25,8 @@ namespace TwitterDataWorker
     {
         private string _consumerKey = WebConfigurationManager.AppSettings["_consumerKey"];
         private string _consumerSecret = WebConfigurationManager.AppSettings["_consumerSecret"];
-        private string _accessToken = "2646280183-pWOqDO2EqyUjEB6K8lUbf5VLnrPA61pyz6UgO9v";
-        private string _accessTokenSecret = "IDJlUHf1FZOrYsQUzydzvcFFzJar7Gyv6mQWMSwjjo8cP";
+        private string _accessToken = "";
+        private string _accessTokenSecret = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
