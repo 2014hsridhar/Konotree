@@ -18,10 +18,10 @@ namespace TwitterDataWorker
 
     public partial class fullRaven : System.Web.UI.Page
     {
-        const string accessToken = "2646280183-XFBmBcL8O0sUNl6eYgYigsoLVHN0x1yEf62XsPJ";
-        const string accessTokenSecret = "NOBBmpBQqOhZZxYb4iBUD88038LKsOvImz1pZoi7udiNX";
-        const string consumerKey = "cRL7ezgfmbzAuCdK9744LCObE";
-        const string consumerSecret = "QuxFUBjvfxP2ikkkdH9dItH9KSjSO9lYfAjCfbBRvnalrEnUJA";
+        const string accessToken = "";
+        const string accessTokenSecret = "";
+        const string consumerKey = "";
+        const string consumerSecret = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
