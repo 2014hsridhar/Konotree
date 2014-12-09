@@ -21,10 +21,10 @@ namespace TwitterDataWorker
 {
     public partial class LinkedIn : System.Web.UI.Page
     {
-        private const string LinkedInApiKey = "77n05i85cakept";
-        private const string LinkedInApiSecret = "sM8dlQFnbgWtAZC7";
-        private const string LinkedInUserToken = "c96bc95f-100e-4919-9fce-b7fb8d8eb385";
-        private const string LinkedInUserSecret = "08e5f363-89bf-4c08-af5b-b5153e2fbaef";
+        private const string LinkedInApiKey = "";
+        private const string LinkedInApiSecret = "";
+        private const string LinkedInUserToken = "";
+        private const string LinkedInUserSecret = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
